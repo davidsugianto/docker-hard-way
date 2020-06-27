@@ -1,0 +1,32 @@
+version: '3.5'
+
+networks:
+  app-tier:
+    driver: bridge
+
+services:
+  node:
+    container_name: node
+    build:
+      context: ./apps/nuxt
+    restart: always
+    environment:
+      - 'TZ=${TIMEZONE}'
+      - 'NODE_PORT=3000'
+      - 'BUILD_FLAG=production'
+    networks:
+      - app-tier
+    ports: 
+      - "3000:3000"
+
+  flask:
+    container_name: flask
+    build:
+      context: ./apps/flask/src
+    restart: always
+    environment:
+      - 'TZ=${TIMEZONE}'
+    networks:
+      - app-tier
+    ports: 
+      - "5000:5000"

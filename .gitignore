@@ -1,0 +1,10 @@
+######################################
+# CUSTOM
+######################################
+docker/apps/nuxt/node_modules/*
+docker/apps/nuxt/.nuxt/*
+# !public-html/.keepfile
+# logs/nginx/*
+# !logs/nginx/.keepfile
+# scripts/*
+# !scripts/.keepfile

@@ -1,0 +1,44 @@
+stages:
+  - build
+  - release
+  - deploy
+
+build_apps:
+  image: node:12-alpine
+  stage: build
+  script:
+    - npm install
+    - npm audit fix
+    - npm run build
+  only:
+    - production
+  tags:
+    - shell
+
+release_apps:
+  variables:
+    GIT_STRATEGY: none
+    GIT_CHECKOUT: "false"
+  stage: release
+  script:
+    - echo "$CI_PASSWORD" | docker login $CI_REGISTRY --username $CI_USERNAME --password-stdin
+    - cd $APP_DIR
+    - docker build -t $CI_REPO_NAME .
+    - docker tag $CI_REPO_NAME $CI_REGISTRY/$CI_REPO_PATH/$CI_REPO_NAME:$CI_COMMIT_SHORT_SHA
+    - docker push $CI_REGISTRY/$CI_REPO_PATH/CI_REPO_NAME:CI_COMMIT_SHORT_SHA
+  only:
+    - production
+  tags:
+    - shell
+
+deploy_apps:
+  variables:
+    GIT_STRATEGY: none
+    GIT_CHECKOUT: "false"
+  stage: deploy
+  script:
+    - echo "deploy production"
+  only:
+    - production
+  tags:
+    - shell
