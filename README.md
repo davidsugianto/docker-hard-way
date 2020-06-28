@@ -20,14 +20,8 @@ Fungsi utama Docker adalah menyederhanakan konfigurasi yang dibangun berdasarkan
 Docker daemon adalah sebuah service yang dijalankan di dalam host dalam Operating System (OS) kita. Fungsinya adalah membangun, mendistribusikan, dan menjalankan container docker.
 
 ### Docker Object
-- Images 
-  ```
-  Docker images adalah sebuah template yang bersifat read only. Template ini sebenarnya adalah sebuah OS atau OS yang telah diinstall berbagai aplikasi. Docker images berfungsi untuk membuat docker container, dengan hanya 1 docker images kita dapat membuat banyak docker container.
-  ```
-- Container
-  ```
-  paket / aplikasi yang mengandalkan isolasi virtual untuk menjalankan aplikasi yang dapat menjalankan sistem operasi kernel secara simultan tanpa memerlukan mesin virtual (VMs).
-  ```
+- Docker images adalah sebuah template yang bersifat read only. Template ini sebenarnya adalah sebuah OS atau OS yang telah diinstall berbagai aplikasi. Docker images berfungsi untuk membuat docker container, dengan hanya 1 docker images kita dapat membuat banyak docker container.
+- Docker Container adalah paket / aplikasi yang mengandalkan isolasi virtual untuk menjalankan aplikasi yang dapat menjalankan sistem operasi kernel secara simultan tanpa memerlukan mesin virtual (VMs).
 
 ### Docker Registry
 Tempat terpusat bagi tim Anda untuk mengelola image Docker.
