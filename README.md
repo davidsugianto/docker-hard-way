@@ -17,18 +17,41 @@ Fungsi utama Docker adalah menyederhanakan konfigurasi yang dibangun berdasarkan
 ![enter image description here](./assets/docker-architecture.png)
 
 ### Docker Daemon
-Docker daemon (dockerd) mendengarkan permintaan Docker API dan mengelola objek Docker seperti images, container, network, dan volume.
+Docker daemon adalah sebuah service yang dijalankan di dalam host dalam Operating System (OS) kita. Fungsinya adalah membangun, mendistribusikan, dan menjalankan container docker.
 
 ### Docker Object
 - Images 
+  ```
+  Docker images adalah sebuah template yang bersifat read only. Template ini sebenarnya adalah sebuah OS atau OS yang telah diinstall berbagai aplikasi. Docker images berfungsi untuk membuat docker container, dengan hanya 1 docker images kita dapat membuat banyak docker container.
+  ```
 - Container
-- Services 
+  ```
+  paket / aplikasi yang mengandalkan isolasi virtual untuk menjalankan aplikasi yang dapat menjalankan sistem operasi kernel secara simultan tanpa memerlukan mesin virtual (VMs).
+  ```
 
 ### Docker Registry
 Tempat terpusat bagi tim Anda untuk mengelola image Docker.
 
+## Instalasi
+- Ubuntu
+  ```
+  sudo apt update
+  sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  sudo apt-key fingerprint 0EBFCD88
+  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  sudo apt update
+  sudo apt install docker-ce docker-ce-cli containerd.io
+  docker version
+  ```
+- Debian -> `https://docs.docker.com/engine/install/debian/`
+- CentOS -> `https://docs.docker.com/engine/install/centos/`
+- Windows -> `https://docs.docker.com/docker-for-windows/install/`
+- Mac -> `https://docs.docker.com/docker-for-mac/install/`
+
 ## Refrensi
 - https://docs.docker.com/
+- https://docs.docker.com/engine/install/
 - https://www.cloudmatika.co.id/blog-detail/perbedaan-antara-vm-virtual-machine-dengan-container
 - https://medium.com/@viandwi24/belajar-docker-mengenal-apa-itu-docker-dan-container-container-vs-virtual-machine-3c20d7288224
 - https://www.ekrut.com/media/mengenal-docker-dan-penggunaannya-seperti-apa-sih
